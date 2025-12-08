@@ -1,0 +1,103 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+
+annotate view ZC_ATI_AKVBAS with
+
+{
+  @UI.facet: [ { id: 'HeaderAct',
+                 purpose: #STANDARD,
+                 position: 1,
+                 label: 'Müşteri Bilgileri',
+                 type: #IDENTIFICATION_REFERENCE },
+               { id: 'ItemAct',
+                 purpose: #STANDARD,
+                 position: 2,
+                 label: 'Aktivite Detay',
+                 type: #LINEITEM_REFERENCE,
+                 targetElement: '_akvkal' } ]
+  @UI.identification: [ { position: 1, label: 'Müşteri Id' } ]
+  @UI.lineItem: [ { position: 1 },
+                  { label: 'Müşteri Id' },
+                  { type: #FOR_ACTION, dataAction: 'copyActivity', label: 'Copy Activity', determining: false },
+                  { type: #FOR_ACTION, dataAction: 'acceptAct', label: 'Approve Activity' },
+                  { type: #FOR_ACTION, dataAction: 'rejectAct', label: 'Reject Activity' },
+                  { type: #FOR_ACTION, dataAction: 'calcPrice', label: 'Calc.Total Price' } ]
+  Musteriid;
+
+  @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_ATI_MUSTERI_VH', element: 'Musteritnm' } } ]
+  @EndUserText.label: 'Müşteri Tanım'
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 2, label: 'Müşteri Tanım' } ]
+  @UI.lineItem: [ { position: 2 },
+                  { label: 'Müşteri Tanım' } ]
+  Musteritnm;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 3, label: 'Şehir' } ]
+  @UI.lineItem: [ { position: 3 },
+                  { label: 'Şehir' } ]
+  Sehir;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 4, label: 'Adres' } ]
+  @UI.lineItem: [ { position: 4 },
+                  { label: 'Adres' } ]
+  Adres;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 5, label: 'Sorumlu' } ]
+  @UI.lineItem: [ { position: 5 },
+                  { label: 'Sorumlu' } ]
+  Sorumlu;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 6, label: 'Ticket Sayısı' } ]
+  @UI.lineItem: [ { position: 6 },
+                  { label: 'Ticket Sayısı' } ]
+  Ticketsayisi;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 7, label: 'Toplam Saat' } ]
+  @UI.lineItem: [ { position: 7 },
+                  { label: 'Toplam Saat' } ]
+  Toplamsaat;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 8, label: 'Onay Durum' } ]
+  @UI.lineItem: [ { position: 8 },
+                  { label: 'Onay Durum' } ]
+  Onaydrm;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.identification: [ { position: 9, label: 'Toplam Tutar' } ]
+  @UI.lineItem: [ { position: 9 },
+                  { label: 'Toplam Tutar' } ]
+  Toptutar;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.8
+  @UI.hidden: true
+  @UI.identification: [ { position: 10, label: 'Currency' } ]
+  @UI.lineItem: [ { position: 10 },
+                  { label: 'Currency' } ]
+  Currency;
+
+  @UI.lineItem: [ { position: 10 } ]
+
+  // Uname;
+  // Timestamp;
+  // Aedat;
+  // Psotm;
+  // Lastchantime;
+  /* Associations */
+  _akvkal;
+}

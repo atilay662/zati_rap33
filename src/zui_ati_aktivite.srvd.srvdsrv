@@ -1,0 +1,5 @@
+@EndUserText.label: 'Aktivite'
+define service ZUI_ATI_AKTIVITE {
+  expose ZC_ATI_AKVBAS;
+  expose ZC_ATI_AKVKAL;
+}

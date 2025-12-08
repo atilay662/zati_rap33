@@ -1,0 +1,46 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Aktivite',
+    typeNamePlural: 'Aktiviteler'
+  }
+}
+annotate view ZC_ATI_AKVKAL with
+{
+  @UI.facet: [
+    {
+      id: 'ItemData',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Aktivite Detayları',
+      position: 10
+    }
+  ]
+  
+  @UI.lineItem: [{ position: 1, label: 'Müşteri Id' }]
+  @UI.identification: [{ position: 1, label: 'Müşteri Id' }]
+  Musteriid;
+  
+  @UI.lineItem: [{ position: 2, label: 'Aktivite Id' }]
+  @UI.identification: [{ position: 2, label: 'Aktivite Id' }]
+  Aktiviteid;
+  
+  @UI.lineItem: [{ position: 10, label: 'Lokasyon' }]
+  @UI.identification: [{ position: 10, label: 'Lokasyon' }]
+  Lokasyon;
+  
+  @UI.lineItem: [{ position: 20, label: 'Ortam' }]
+  @UI.identification: [{ position: 20, label: 'Ortam' }]
+  Ortam;
+  
+  @UI.lineItem: [{ position: 30, label: 'Proje Türü' }]
+  @UI.identification: [{ position: 30, label: 'Proje Türü' }]
+  Projeturu;
+  
+  @UI.lineItem: [{ position: 40, label: 'Ticket No' }]
+  @UI.identification: [{ position: 40, label: 'Ticket No' }]
+  Ticketno;
+  
+//  @UI.hidden: true
+//  lastchantime;
+}

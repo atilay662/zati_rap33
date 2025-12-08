@@ -1,0 +1,64 @@
+managed;
+strict ( 2 );
+
+define behavior for ZI_ATI_AKVBAS //alias <alias_name>
+implementation in class zbp_i_ati_akvbas unique
+persistent table zati_aktv_baslik
+lock master
+authorization master ( instance, global )
+early numbering
+etag master Lastchantime
+{
+
+  create ( authorization : global );
+  update ( precheck );
+  delete;
+  field ( readonly ) Musteriid;
+  field ( mandatory ) Sorumlu, Sehir;
+  //field ( mandatory : create, readonly : update ) Sorumlu, Sehir;
+  //field ( readonly : update ) Musteriid;
+  association _akvkal { create; }
+
+  determination setTimeLog on save { create; update; }
+  determination onayDurum on modify { create; field Toptutar ;}
+  validation mandatory_sorumlu on save { create; update; field Sorumlu; }
+
+  factory action copyActivity [1];
+  action ( features : instance ) acceptAct result [1] $self;
+  action ( features : instance ) rejectAct result [1] $self;
+  action ( authorization : update ) calcPrice parameter ZA_ATI_ABSTRACT result [1] $self;
+
+  side effects { field Toptutar affects field Onaydrm; }
+
+  mapping for zati_aktv_baslik
+    {
+      musteriid    = Musteriid;
+      musteritnm   = Musteritnm;
+      sehir        = Sehir;
+      adres        = Adres;
+      sorumlu      = Sorumlu;
+      ticketsayisi = Ticketsayisi;
+      toplamsaat   = Toplamsaat;
+      onaydrm      = Onaydrm;
+      Toptutar     = toptutar;
+      Currency     = Currency;
+      uname        = Uname;
+      timestamp    = Timestamp;
+      aedat        = Aedat;
+      psotm        = Psotm;
+      lastchantime = Lastchantime;
+    }
+}
+
+define behavior for ZI_ATI_AKVKAL //alias <alias_name>
+implementation in class zbp_i_ati_akvkal unique
+persistent table zati_aktv_kalem
+lock dependent by _akvbas
+authorization dependent by _akvbas
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Musteriid;
+  association _akvbas;
+}
