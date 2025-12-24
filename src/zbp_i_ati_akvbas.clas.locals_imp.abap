@@ -24,6 +24,14 @@ CLASS lhc_zi_ati_akvbas DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR ACTION zi_ati_akvbas~calcprice RESULT result.
     METHODS onaydurum FOR DETERMINE ON MODIFY
       IMPORTING keys FOR zi_ati_akvbas~onaydurum.
+    METHODS getdefaultsforabstract FOR READ
+      IMPORTING keys FOR FUNCTION zi_ati_akvbas~getdefaultsforabstract RESULT result.
+
+    METHODS calcpricedefault FOR MODIFY
+      IMPORTING keys FOR ACTION zi_ati_akvbas~calcpricedefault RESULT result.
+
+    METHODS precheck_calcpricedefault FOR PRECHECK
+      IMPORTING keys FOR ACTION zi_ati_akvbas~calcpricedefault.
     METHODS earlynumbering_create FOR NUMBERING
       IMPORTING entities FOR CREATE zi_ati_akvbas.
 
@@ -389,4 +397,35 @@ CLASS lhc_zi_ati_akvbas IMPLEMENTATION.
              TO reported-zi_ati_akvbas.
     ENDLOOP.
   ENDMETHOD.
+
+  METHOD getdefaultsforabstract.
+    READ ENTITIES OF zi_ati_akvbas IN LOCAL MODE
+     ENTITY zi_ati_akvbas
+     ALL FIELDS WITH CORRESPONDING #( keys )
+     RESULT DATA(lt_head).
+
+    LOOP AT lt_head INTO DATA(ls_head).
+      APPEND INITIAL LINE TO result ASSIGNING FIELD-SYMBOL(<lfs_result>).
+      <lfs_result>-%tky = ls_head-%tky.
+      <lfs_result>-%param-adres = ls_head-Adres.
+      <lfs_result>-%param-toplamsaat = ls_head-Toplamsaat.
+      <lfs_result>-%param-toptutar = ls_head-Toptutar.
+      <lfs_result>-%param-currency_code = 'TRY'.
+    ENDLOOP.
+ENDMETHOD.
+
+  METHOD calcpricedefault.
+    READ ENTITIES OF zi_ati_akvbas IN LOCAL MODE
+         ENTITY zi_ati_akvbas
+         ALL FIELDS WITH CORRESPONDING #( keys )
+         RESULT DATA(lt_head).
+  ENDMETHOD.
+
+  METHOD precheck_calcpricedefault.
+    READ ENTITIES OF zi_ati_akvbas IN LOCAL MODE
+         ENTITY zi_ati_akvbas
+         ALL FIELDS WITH CORRESPONDING #( keys )
+         RESULT DATA(lt_head).
+  ENDMETHOD.
+
 ENDCLASS.

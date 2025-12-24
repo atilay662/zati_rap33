@@ -12,7 +12,9 @@ use etag
   use action acceptAct;
   use action rejectAct;
   use action calcPrice;
+  use action calcpricedefault;
   use association _akvkal { create; }
+  use function GetDefaultsForAbstract ;
 }
 
 define behavior for ZC_ATI_AKVKAL //alias <alias_name>

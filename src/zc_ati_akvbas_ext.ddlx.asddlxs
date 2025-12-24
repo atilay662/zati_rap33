@@ -22,7 +22,9 @@ annotate view ZC_ATI_AKVBAS with
                   { type: #FOR_ACTION, dataAction: 'copyActivity', label: 'Copy Activity', determining: false },
                   { type: #FOR_ACTION, dataAction: 'acceptAct', label: 'Approve Activity' },
                   { type: #FOR_ACTION, dataAction: 'rejectAct', label: 'Reject Activity' },
-                  { type: #FOR_ACTION, dataAction: 'calcPrice', label: 'Calc.Total Price' } ]
+                  { type: #FOR_ACTION, dataAction: 'calcPrice', label: 'Calc.Total Price' },
+                  { type: #FOR_ACTION, dataAction: 'calcpricedefault', label: 'Test Price' }
+                   ]
   Musteriid;
 
   @Consumption.valueHelpDefinition: [ { entity: { name: 'ZI_ATI_MUSTERI_VH', element: 'Musteritnm' } } ]

@@ -28,6 +28,10 @@ etag master Lastchantime
   action ( features : instance ) rejectAct result [1] $self;
   action ( authorization : update ) calcPrice parameter ZA_ATI_ABSTRACT result [1] $self;
 
+  action ( features : instance, precheck ) calcpricedefault
+    parameter ZA_ATI_DEFAULT_ABSTRACT result [1] $self
+    { default function GetDefaultsForAbstract; }
+
   side effects { field Toptutar affects field Onaydrm; }
 
   mapping for zati_aktv_baslik
