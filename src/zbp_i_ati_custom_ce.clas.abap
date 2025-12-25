@@ -1,0 +1,5 @@
+CLASS zbp_i_ati_custom_ce DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_ati_custom_ce.
+ENDCLASS.
+
+CLASS zbp_i_ati_custom_ce IMPLEMENTATION.
+ENDCLASS.

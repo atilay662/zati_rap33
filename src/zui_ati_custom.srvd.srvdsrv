@@ -1,0 +1,4 @@
+@EndUserText.label: 'Custom Definition'
+define service ZUI_ATI_CUSTOM {
+  expose ZI_ATI_CUSTOM_CE;
+}

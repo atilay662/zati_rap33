@@ -11,7 +11,6 @@ define abstract entity ZA_ATI_ABSTRACT
     currency_code : /dmo/currency_code;
 //  @UI.hidden    : true
 
-
 //  adres         : abap.sstring(70);
 //  toplamsaat    : abap.int8;
 //  @Semantics.amount.currencyCode : 'currency_code'

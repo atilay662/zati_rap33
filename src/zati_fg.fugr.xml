@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZATI_FGTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZATI_FG</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZATI_UPDATE_DB</FUNCNAME>
+     <SHORT_TEXT>ZATI_UPDATE_DB</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_PARAM</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZA_ATI_DEFAULT_ABSTRACT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_MUSTERIID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZATI_E_001</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_PARAM</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_MUSTERIID</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
