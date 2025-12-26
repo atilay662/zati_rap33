@@ -20,7 +20,7 @@ etag master Lastchantime
   association _akvkal { create; }
 
   determination setTimeLog on save { create; update; }
-  determination onayDurum on modify { create; field Toptutar ;}
+  determination onayDurum on modify { create; field Toptutar; }
   validation mandatory_sorumlu on save { create; update; field Sorumlu; }
 
   factory action copyActivity [1];
@@ -30,10 +30,11 @@ etag master Lastchantime
 
   action ( features : instance, precheck ) editLine
     parameter ZA_ATI_DEFAULT_ABSTRACT result [1] $self
-    { default function GetDefaultsForAbstract; }
+  { default function GetDefaultsForAbstract; }
 
   side effects { field Toptutar affects field Onaydrm; }
 
+  static action uploadExcel parameter ZA_EXCEL_UPLOAD;
   mapping for zati_aktv_baslik
     {
       musteriid    = Musteriid;

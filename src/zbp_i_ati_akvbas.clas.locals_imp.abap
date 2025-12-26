@@ -30,6 +30,8 @@ CLASS lhc_zi_ati_akvbas DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR ACTION zi_ati_akvbas~editline RESULT result.
     METHODS precheck_editline FOR PRECHECK
       IMPORTING keys FOR ACTION zi_ati_akvbas~editline.
+    METHODS uploadexcel FOR MODIFY
+      IMPORTING keys FOR ACTION zi_ati_akvbas~uploadexcel.
     METHODS earlynumbering_create FOR NUMBERING
       IMPORTING entities FOR CREATE zi_ati_akvbas.
 
@@ -463,6 +465,9 @@ CLASS lhc_zi_ati_akvbas IMPLEMENTATION.
     result = VALUE #( FOR ls_result IN lt_result
                       ( %tky   = ls_result-%tky
                         %param = ls_result ) ).
+  ENDMETHOD.
+
+  METHOD uploadExcel.
   ENDMETHOD.
 
 ENDCLASS.
